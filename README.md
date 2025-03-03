@@ -4,7 +4,7 @@
 
 ```sh
 # 快速开始
-git clone https://github.com/RT-Thread/rt-thread.git
+git clone -b v5.1.0 https://github.com/RT-Thread/rt-thread.git
 cd rt-thread/bsp/stm32
 git clone https://github.com/czstara12/rt-thread-bsp-stm32f407-doflye.git
 scons
