@@ -4,10 +4,18 @@
 
 ```sh
 # 快速开始
-git clone -b v5.1.0 https://github.com/RT-Thread/rt-thread.git
-cd rt-thread/bsp/stm32
-git clone https://github.com/czstara12/rt-thread-bsp-stm32f407-doflye.git
+git clone -b v5.1.x https://github.com/RT-Thread/rt-thread.git
+git clone https://github.com/czstara12/rt-thread-bsp-stm32f407-doflye.git rt-thread/bsp/stm32/stm32f407-doflye
+cd rt-thread/bsp/stm32/stm32f407-doflye
 scons
+```
+
+不能编译请添加环境变量
+
+```sh
+export RTT_EXEC_PATH=[GCC路径]
+export RTT_CC=gcc
+export RTT_ROOT=[RTT仓库路径]
 ```
 
 ## 简介
