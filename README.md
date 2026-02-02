@@ -58,6 +58,7 @@ STM32F4 dofly开发板 是一块最小核心板，最高主频为 168Mhz，该�
 | UART         |     支持     |              UART1              |
 | SPI          |     支持     |               SPI1               |
 | I2C          |     支持     |               软件 I2C                |
+| NRF24L01     |     支持     |           板载无线模块接口            |
 
 ## 使用说明
 
@@ -95,8 +96,8 @@ STM32F4 dofly开发板 是一块最小核心板，最高主频为 168Mhz，该�
 ```c
  \ | /
 - RT -     Thread Operating System
- / | \     3.1.1 build Nov 19 2018
- 2006 - 2018 Copyright by rt-thread team
+ / | \     5.1.0 build Nov 19 2014
+ 2006 - 2024 Copyright by rt-thread team
 msh >
 ```
 ### 进阶使用
@@ -113,6 +114,35 @@ msh >
 
 本章节更多详细的介绍请参考 [STM32 系列 BSP 外设驱动使用教程](../docs/STM32系列BSP外设驱动使用教程.md)。
 
+#### NRF24L01 使用说明
+
+本 BSP 支持板载 NRF24L01 无线模块接口，驱动基于 RT-Thread SPI 设备框架实现。
+
+**配置步骤**：
+
+1. 在 ENV 工具中输入 `menuconfig`
+2. 进入 `Hardware Drivers Config` -> `Board extended module Drivers`
+3. 勾选 `Enable NRF24L01`
+
+**引脚连接**：
+
+| 信号 | 引脚 | 备注 |
+| :--- | :--- | :--- |
+| CE   | PA4  | 控制引脚 |
+| CSN  | PC4  | 片选引脚 |
+| IRQ  | PC5  | 中断引脚 |
+| SCK  | PA5  | SPI1 CLK |
+| MISO | PA6  | SPI1 MISO |
+| MOSI | PA7  | SPI1 MOSI |
+
+**测试命令**：
+
+系统启动后会自动初始化 NRF24L01。可以使用 `nrf24` 命令进行测试：
+
+- 检测模块：`nrf24 check`
+- 读取寄存器：`nrf24 reg`
+- 发送测试包：`nrf24 send <data>`
+
 ## 注意事项
 
 暂无
@@ -125,4 +155,4 @@ msh >
 
 ## TODO
 
-1. 正在支持板载24l01接口驱动
+1. 暂无
